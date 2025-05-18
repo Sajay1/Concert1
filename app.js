@@ -6,7 +6,6 @@ var logger = require('morgan');
 const session = require('express-session');
 var indexRouter = require('./routes/index');
 var concertRouter= require('./routes/concert');
-var userRouter= require('./routes/user');
 var bookingRoutes= require('./routes/booking');
 var apiRoutes=require('./routes/api');
 const db = require('./db/db');
@@ -33,7 +32,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/',concertRouter);
-app.use('/',userRouter);
 app.use('/',bookingRoutes);
 app.use('/api',apiRoutes);
 
