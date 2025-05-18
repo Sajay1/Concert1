@@ -1,0 +1,93 @@
+
+<% title = 'Delete Confirmation' %>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf2f2;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    color: #c0392b;
+    text-align: center;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .concert-details {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fceae9;
+    border-left: 5px solid #e74c3c;
+    border-radius: 5px;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+
+  button {
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #c0392b;
+  }
+
+  .cancel-link {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #bdc3c7;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+  .cancel-link:hover {
+    background-color: #95a5a6;
+  }
+</style>
+
+<div class="container">
+  <h1>Delete Confirmation</h1>
+  <p>Are you sure you want to delete the concert listed below?</p>
+
+  <div class="concert-details">
+    <p><strong>Concert Name:</strong> <%= concert.ConcertName %></p>
+    <p><strong>Date:</strong> <%= concert.Date %></p>
+    <p><strong>Venue:</strong> <%= concert.Venue %></p>
+    <p><strong>Ticket Price:</strong> ₹<%= concert.TicketPrice %></p>
+    <p><strong>Available Tickets:</strong> <%= concert.AvailableTickets %></p>
+  </div>
+
+  <form action="/concert_delete/<%= concert._id %>" method="post">
+    <div class="button-group">
+      <button type="submit">Yes, Delete</button>
+      <a href="/concert_retrieve" class="cancel-link">No, Cancel</a>
+    </div>
+  </form>
+</div>

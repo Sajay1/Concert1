@@ -1,0 +1,136 @@
+
+<% title = 'Concert' %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="datetime-local"],
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"],
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #3498db;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover,
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .error-box {
+      background-color: #ffe6e6;
+      border: 1px solid #ff4d4d;
+      color: #cc0000;
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .actions form {
+      display: inline;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Create Concert</h1>
+
+  <div class="container">
+    <% if (error) { %>
+      <div class="error-box">
+        <p><strong>Error(s):</strong></p>
+        <ul>
+          <% Object.values(error).forEach(err => { %>
+            <li><%= err.message %></li>
+          <% }); %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form action="/concert_create" method="post" enctype="multipart/form-data">
+      <label for="ConcertName">Concert Name:</label>
+      <input type="text" id="ConcertName" name="ConcertName" required>
+
+      <label for="Date">Date:</label>
+      <input type="datetime-local" id="Date" name="Date" required>
+
+      <label for="Venue">Venue:</label>
+      <input type="text" id="Venue" name="Venue" required>
+
+      <label for="TicketPrice">Price:</label>
+      <input type="number" id="TicketPrice" name="TicketPrice" step="0.01" required>
+
+      <label for="AvailableTickets">Available Tickets:</label>
+      <input type="number" id="AvailableTickets" name="AvailableTickets" required>
+
+      <label for="image">Add Image:</label>
+      <input type="file" name="image" accept="image/*" required>
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <div class="actions">
+      <form action="/concert_retrieve" method="GET">
+        <button type="submit">Retrieve</button>
+      </form>
+      <form action="/logout" method="GET">
+        <button type="submit" style="background-color: #e74c3c;">Logout</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

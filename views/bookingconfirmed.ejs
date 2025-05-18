@@ -1,0 +1,74 @@
+
+<% title = 'Booking Confirmed' %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f0f8ff;
+      text-align: center;
+    }
+    .container {
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    h1 {
+      color: #4caf50;
+    }
+    form {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      border: dotted;
+      color: #2196f3;
+    }
+
+    img{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Booking Confirmed!</h1>
+    <p>Thank you for booking tickets for <strong><%= concert.ConcertName %></strong></p>
+
+
+    <p><strong>Date:</strong> <%= concert.Date.toDateString() %></p>
+    <p><strong>Time:</strong> <%= concert.Time %></p>
+    <p><strong>Venue:</strong> <%= concert.Venue %></p>
+
+    <p style="color: green;"><strong>Enjoy the concert!</strong></p>
+
+    <form action="/concert" method="get">
+      <button type="submit">← Back to Concert List</button>
+    </form> 
+
+    <form action="/generate-pdf/<%= booking ? booking._id : '' %>" method="get">
+      <button type="submit" value="pdf">Download PDF</button>
+    </form>
+    
+
+    <form action="/booking_mail/<%= booking ? booking._id : '' %>" method="get">
+      <button type="submit" value="mail">Mail</button>
+    </form>
+
+
+    <form action="/QR-code/<%= booking ? booking._id : '' %>" method="get">
+      <img src="/public/images/images.png" alt="QR-CODE">
+    </form>
+
+  </div>
+</body>
+</html>
