@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <% title = 'Login' %>
 
@@ -124,3 +125,131 @@
   </div>
 </body>
 </html>
+=======
+
+<% title = 'Login' %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .signup-link {
+      display: block;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    .error-box {
+      margin-top: 20px;
+      background-color: #ffe6e6;
+      color: #cc0000;
+      border: 1px solid #ff4d4d;
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Login</h1>
+
+  <div class="login-container">
+    <form action="/userlogin" method="post">
+      <label for="Email">Email:</label>
+      <input type="email" id="Email" name="Email" placeholder="Enter your email" required autofocus>
+
+      <label for="Password">Password:</label>
+      <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+
+      <div class="signup-link">
+        <span>Don't have an account? <a href="/signup">Signup</a></span>
+      </div>
+    </form>
+
+    <% if (errors.length > 0) { %>
+      <div class="error-box">
+        <ul>
+          <% errors.forEach(function(error) { %>
+            <li><%= error.msg %></li>
+          <% }); %>
+        </ul>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
+>>>>>>> d148a6cbb52ceadea0bd3e901cc07344e61d13c4
