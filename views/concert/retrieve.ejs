@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <style>
 
   img{
@@ -72,79 +72,4 @@
   <% } %>
   <form action="/logout" method="GET">
     <button type="submit">Logout</button>
-=======
-<style>
-
-  img{
-    display: flex;
-    flex-direction: column;
-    width: 50;
-    height: 50;
-    box-shadow: 2px 2px rgba(254, 0, 97, 0.3);
-  }
-  img:hover{
-    transform: scale3d(2.05, 2.05,100);
-    transition: transform 0.5s ease-in-out;
-  }
-  .Home
-  {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 9px;
-    border-radius: 10px;
-    margin: 10px auto;
-    margin-right: 10px;
-    display: flex;
-    align-items: center;
-    background-color: blueviolet;
-    color: white;
-    box-shadow: 4px 4px 10px rgba(22, 14, 169,0.6);
-   border-radius: 40px;
-   }
-</style>
-
-<% title='Concert List' %>
-  <h1>Concert List</h1>
-  <% if (data.length > 0) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>ConcertName</th>
-          <th>Date</th>
-          <th>Venue</th>
-          <th>Ticket Price</th>
-          <th>Available Tickets</th>
-          <th>Image</th>
-          <th colspan="6">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% data.forEach(concert => { %>
-          <tr>
-            <td><%= concert.ConcertName %></td>
-            <td><%= concert.Date %></td>
-            <td><%= concert.Venue %></td>
-            <td><%= concert.TicketPrice %></td>
-            <td><%= concert.AvailableTickets %></td>
-            <td><img src="/images/<%= concert.image %>" />
-            </td>
-            <td><a href="concert_update/<%= concert._id %>" value="edit" type="submit">Edit</a></td>
-            <td><a href="concert_delete/<%= concert._id %>" value="delete" type="submit">Delete</a></td>
-          </tr>
-        <% }); %>
-      </tbody>
-      <form action="/concert_create" method="GET">
-        <button type="submit" class="Home">Home</button>
-      </form>
-    </table>
-  <% } else { %>
-    <p>No Concerts found.</p>
-    <form action="/concert_create" method="GET">
-      <button type="submit">Home</button>
-    </form>
-  <% } %>
-  <form action="/logout" method="GET">
-    <button type="submit">Logout</button>
->>>>>>> d148a6cbb52ceadea0bd3e901cc07344e61d13c4
   </form> 
