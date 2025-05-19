@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+        "create:gitignore": "echo 'node_modules/\n.env\ndist/\nbuild/' > .gitignore"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
